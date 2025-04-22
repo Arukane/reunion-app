@@ -20,13 +20,13 @@ if (attendeeForm) {
       const result = await response.json();
 
       if (response.ok) {
-        showMessage(`Thanks, ${firstName}! You've been marked as attending.`, 'success');
+        showMessage(`Grazie mille per la partecipazione, ${firstName}!`, 'success');
         attendeeForm.reset();
       } else {
-        showMessage(result.error || 'Failed to confirm attendance.', 'error');
+        showMessage(result.error || 'Errore nella convalidazione.', 'error');
       }
     } catch (err) {
-      showMessage('Network error. Try again later.', 'error');
+      showMessage('Errore di rete, riprova più tardi.', 'error');
     }
   });
 
@@ -50,10 +50,10 @@ if (generateBtn && currentPasscodeEl && attendeeListEl) {
         displayPasscode(data.passcode);
         loadAttendees();
       } else {
-        currentPasscodeEl.textContent = 'Error: ' + (data.error || 'Failed to generate passcode.');
+        currentPasscodeEl.textContent = 'Errore: ' + (data.error || 'Problemi nella generazione del codice.');
       }
     } catch (err) {
-      currentPasscodeEl.textContent = 'Error generating passcode.';
+      currentPasscodeEl.textContent = 'Errore nella generazione del codice.';
     }
   });
 
@@ -68,10 +68,10 @@ async function loadAdminData() {
       displayPasscode(data.passcode);
       loadAttendees();
     } else {
-      currentPasscodeEl.textContent = 'Error loading passcode.';
+      currentPasscodeEl.textContent = 'Errore nel caricamento del codice.';
     }
   } catch {
-    currentPasscodeEl.textContent = 'Failed to load data.';
+    currentPasscodeEl.textContent = 'Errore nel caricamento dei dati.';
   }
 }
 
@@ -82,21 +82,21 @@ async function loadAttendees() {
     if (res.ok) {
       displayAttendees(data.attendees);
     } else {
-      attendeeListEl.textContent = 'Error loading attendees.';
+      attendeeListEl.textContent = 'Errore nel caricamento dei partecipanti.';
     }
   } catch {
-    attendeeListEl.textContent = 'Error fetching attendees.';
+    attendeeListEl.textContent = 'Errore nel ritrovamento dei partecipanti.';
   }
 }
 
 function displayPasscode(code) {
-  currentPasscodeEl.textContent = `Current Passcode: ${code || 'None'}`;
+  currentPasscodeEl.textContent = `Codice corrente: ${code || 'None'}`;
 }
 
 function displayAttendees(attendees) {
   attendeeListEl.innerHTML = '';
   if (!attendees || attendees.length === 0) {
-    attendeeListEl.textContent = 'No attendees confirmed yet.';
+    attendeeListEl.textContent = 'Non ci sono dei partecipanti al momento.';
     return;
   }
 
