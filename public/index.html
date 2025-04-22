@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reunion Attendance</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Conferma la tua Presenza</h1>
+            <form id="attendee-form">
+                <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                <input type="text" name="cognome" id="cognome" placeholder="Cognome" required>
+                <input type="text" name="codice" id="codice" placeholder="Codice" required>
+                <button type="submit">Conferma</button>
+            </form>
+            <div id="confirmation-message"></div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
